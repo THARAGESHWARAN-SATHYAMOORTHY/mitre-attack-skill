@@ -198,7 +198,8 @@ flowchart LR
 [`skills/mitre-attack/scripts/attack.py`](skills/mitre-attack/scripts/attack.py) is a single-file, standard-library-only ATT&CK CLI. Use it in scripts and CI:
 
 ```bash
-curl -O https://raw.githubusercontent.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/main/skills/mitre-attack/scripts/attack.py
+git clone --depth 1 https://github.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill
+cd mitre-attack-skill/skills/mitre-attack/scripts
 python3 -I attack.py update
 python3 -I attack.py get T1562
 ```
@@ -230,8 +231,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: curl -sSO https://raw.githubusercontent.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/main/skills/mitre-attack/scripts/attack.py
-      - run: python3 -I attack.py update -d enterprise
+      - uses: actions/checkout@v4
+        with:
+          repository: THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill
+          path: .attack-skill
+      - run: cp .attack-skill/skills/mitre-attack/scripts/attack.py . && python3 -I attack.py update -d enterprise
       - name: Validate every mapping file
         run: |
           status=0

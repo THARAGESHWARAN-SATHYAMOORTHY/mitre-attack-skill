@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """attack.py - stdlib-only MITRE ATT&CK CLI (enterprise / mobile / ics). Run: python3 -I attack.py <command> -h"""
 import argparse, csv, io, json, os, re, sys, time, urllib.error, urllib.request
 from collections import Counter, defaultdict
