@@ -5,7 +5,7 @@
 <br>
 
 [![ATT&CK v20.1](https://img.shields.io/badge/ATT%26CK-v20.1-e5484d?style=flat-square)](https://attack.mitre.org/resources/updates/)
-[![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-d97757?style=flat-square)](#-quick-start)
+[![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-d97757?style=flat-square)](#quick-start)
 [![Python 3.8+ stdlib only](https://img.shields.io/badge/python-3.8%2B%20·%20stdlib%20only-3776ab?style=flat-square)](tools/attack.py)
 [![Navigator layer 4.5](https://img.shields.io/badge/Navigator-layer%204.5-2bb5a0?style=flat-square)](https://mitre-attack.github.io/attack-navigator/)
 [![License: MIT](https://img.shields.io/github/license/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill?style=flat-square)](LICENSE)
@@ -16,13 +16,13 @@
 Map incidents, measure detection coverage, build Navigator layers and plan emulations,<br>
 with every ID checked against MITRE's live data before you see it.
 
-[Quick start](#-quick-start) · [See it work](#-see-it-work) · [What you can ask](#-what-you-can-ask) · [How it works](#%EF%B8%8F-how-it-works) · [CLI](#-the-cli-works-without-claude-too) · [FAQ](#-faq)
+[Quick start](#quick-start) · [See it work](#see-it-work) · [What you can ask](#what-you-can-ask) · [How it works](#how-it-works) · [CLI](#the-cli-works-without-claude-too) · [FAQ](#faq)
 
 </div>
 
 ---
 
-## 🚨 The problem: your model's ATT&CK is out of date
+## The problem: your model's ATT&CK is out of date
 
 ATT&CK changes twice a year, and the big 2026 releases broke a lot of mappings people write from memory:
 
@@ -52,7 +52,7 @@ $ attack validate incident-notes.md
 
 ---
 
-## ⚡ Quick start
+## Quick start
 
 ### Claude Code (30 seconds)
 
@@ -88,7 +88,7 @@ Copy `skills/mitre-attack/` into your project's `.claude/skills/` folder.
 
 ---
 
-## 🎬 See it work
+## See it work
 
 <table>
 <tr>
@@ -159,7 +159,7 @@ Each gap links to its **detection strategy** (DET → analytics → data compone
 
 ---
 
-## 💬 What you can ask
+## What you can ask
 
 | Job                    | Try asking                                                      | You get                                                                                                             |
 | ---------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -176,16 +176,16 @@ Covers all three domains: **Enterprise**, **Mobile** and **ICS**.
 
 ---
 
-## ⚙️ How it works
+## How it works
 
 ```mermaid
 flowchart LR
-    A["📄 Report, logs<br/>or Sigma rules"] --> B["🤖 Claude<br/>+ skill"]
-    B --> C["🐍 Live MITRE<br/>data"]
-    C --> D["🧭 Map with<br/>evidence"]
-    D --> E{"✅ Validate<br/>every ID"}
+    A["Report, logs<br/>or Sigma rules"] --> B["Claude<br/>+ skill"]
+    B --> C["Live MITRE<br/>data"]
+    C --> D["Map with<br/>evidence"]
+    D --> E{"Validate<br/>every ID"}
     E -- "stale ID" --> D
-    E -- PASS --> F["📊 Report<br/>+ layer"]
+    E -- PASS --> F["Report<br/>+ layer"]
 ```
 
 1. **Live data, not memory.** The skill installs `attack.py` and downloads the official bundles from [`mitre-attack/attack-stix-data`](https://github.com/mitre-attack/attack-stix-data). Every deliverable states the ATT&CK version it was checked against.
@@ -194,17 +194,24 @@ flowchart LR
 
 ### Guardrails built in
 
-|                              |                                                                                                                      |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| 🔍 **No invented IDs**       | Every technique, group and software ID is looked up, not recalled                                                    |
-| 🧾 **No invented behaviour** | No evidence, no mapping                                                                                              |
-| 🔒 **Redaction**             | Secrets, tokens, credential hashes and PII are stripped from logs before they reach a table, layer comment or report |
-| 🛡️ **No weaponisation**      | Atomic Red Team output is test names and GUIDs only. No exploit code, payloads or attack commands                    |
-| 🎯 **Most specific match**   | Uses the sub-technique the evidence supports, otherwise the parent                                                   |
+| Guardrail                 | What it means                                                                                         |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **No invented IDs**       | Every technique, group and software ID is looked up, not recalled                                     |
+| **No invented behaviour** | No evidence, no mapping                                                                               |
+| **Redaction**             | Secrets, tokens, credential hashes and PII are stripped from logs before they reach a table or report |
+| **No weaponisation**      | Atomic Red Team output is test names and GUIDs only. No exploit code, payloads or attack commands     |
+| **Most specific match**   | Uses the sub-technique the evidence supports, otherwise the parent                                    |
+
+---------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+|  **No invented IDs**       | Every technique, group and software ID is looked up, not recalled                                                    |
+|  **No invented behaviour** | No evidence, no mapping                                                                                              |
+|  **Redaction**             | Secrets, tokens, credential hashes and PII are stripped from logs before they reach a table, layer comment or report |
+|  **No weaponisation**      | Atomic Red Team output is test names and GUIDs only. No exploit code, payloads or attack commands                    |
+|  **Most specific match**   | Uses the sub-technique the evidence supports, otherwise the parent                                                   |
 
 ---
 
-## 🐍 The CLI works without Claude too
+## The CLI works without Claude too
 
 [`tools/attack.py`](tools/attack.py) is a single-file, standard-library-only ATT&CK CLI. Use it in scripts and CI:
 
@@ -258,22 +265,22 @@ For a real pipeline, pin `attack.py` to a commit rather than `main`.
 
 ---
 
-## 🆚 Compared with asking a model directly
+## Compared with asking a model directly
 
-|                                                 |   Plain prompting    | **This skill** |
-| ----------------------------------------------- | :------------------: | :------------: |
-| Knows v19's Stealth / Defense Impairment split  |     ❌ often not     |       ✅       |
-| Knows v20's AI techniques (T1698, T1699, T1700) |     ❌ often not     |       ✅       |
-| Catches revoked IDs and gives the replacement   |          ❌          |       ✅       |
-| States the ATT&CK version of every answer       |          ❌          |       ✅       |
-| Detection strategies → analytics → log sources  |    ⚠️ from memory    |  ✅ from data  |
-| Navigator layers that open first time           | ⚠️ hand-written JSON | ✅ format 4.5  |
-| Evidence and confidence per mapping             |    ⚠️ if you ask     |   ✅ always    |
-| Redacts secrets and PII from pasted logs        |          ❌          |       ✅       |
+|                                                 | Plain prompting   | This skill      |
+| ----------------------------------------------- | ----------------- | --------------- |
+| Knows v19's Stealth / Defense Impairment split  | Often not         | Yes             |
+| Knows v20's AI techniques (T1698, T1699, T1700) | Often not         | Yes             |
+| Catches revoked IDs and gives the replacement   | No                | Yes             |
+| States the ATT&CK version of every answer       | No                | Yes             |
+| Detection strategies → analytics → log sources  | From memory       | From live data  |
+| Navigator layers that open first time           | Hand-written JSON | Yes, format 4.5 |
+| Evidence and confidence per mapping             | Only if asked     | Always          |
+| Redacts secrets and PII from pasted logs        | No                | Yes             |
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 <details>
 <summary><b>Does it need an API key or a paid service?</b></summary>
@@ -312,7 +319,7 @@ Not yet. It covers ATT&CK's AI-related techniques (v20) and points you to ATLAS 
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] MITRE ATLAS lookups alongside ATT&CK
 - [ ] D3FEND countermeasure suggestions for each gap
@@ -321,15 +328,15 @@ Not yet. It covers ATT&CK's AI-related techniques (v20) and points you to ATLAS 
 
 Have an idea? [Open an issue](https://github.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/issues).
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome, especially new workflows, output templates and fixes after a new ATT&CK release. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-If this saved you from shipping a revoked technique ID, **a ⭐ helps other defenders find it.**
+If this saved you from shipping a revoked technique ID, **a  helps other defenders find it.**
 
 [![Star History Chart](https://api.star-history.com/svg?repos=THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill&type=Date)](https://star-history.com/#THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill&Date)
 
-## 📜 Licence and attribution
+## Licence and attribution
 
 The skill and `attack.py` are released under the [MIT licence](LICENSE). Third-party attribution is in [NOTICE](NOTICE).
 
