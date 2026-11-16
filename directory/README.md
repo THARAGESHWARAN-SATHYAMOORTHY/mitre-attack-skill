@@ -28,6 +28,10 @@ Source, docs and examples: https://github.com/THARAGESHWARAN-SATHYAMOORTHY/mitre
 - "Make a Navigator layer of the techniques APT29 and FIN7 share."
 - "Migrate this pre-v19 threat model that still says Defense Evasion."
 
+## Privacy
+
+The plugin collects and stores nothing. See [PRIVACY.md](PRIVACY.md).
+
 ## Licence
 
 MIT, see LICENSE. ATT&CK content belongs to The MITRE Corporation, see NOTICE.
