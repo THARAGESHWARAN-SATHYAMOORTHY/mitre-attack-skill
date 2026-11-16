@@ -238,14 +238,11 @@ jobs:
       - run: cp .attack-skill/skills/mitre-attack/scripts/attack.py . && python3 -I attack.py update -d enterprise
       - name: Validate every mapping file
         run: |
-          status=0
-          for f in $(git ls-files 'detections/*.csv' 'rules/*.yml' 'reports/*.md'); do
-            python3 -I attack.py validate "$f" -d enterprise || status=1
-          done
-          exit $status
+          git ls-files -z 'detections/*.csv' 'rules/*.yml' 'reports/*.md' |
+            xargs -0 -I{} python3 -I attack.py validate {} -d enterprise
 ```
 
-For a real pipeline, pin `attack.py` to a commit rather than `main`.
+`xargs` checks every file and fails the job if any one fails. For a real pipeline, pin the second checkout to a commit with `ref:`.
 
 </details>
 
