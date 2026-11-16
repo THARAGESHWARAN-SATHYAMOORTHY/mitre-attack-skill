@@ -1,6 +1,6 @@
 {
   "name": "attack-analyst",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "MITRE ATT&CK skill: map incidents and reports to techniques, check every ID against attack.mitre.org, measure detection coverage, write Navigator layers, profile groups, plan emulations, and map Sigma and Atomic Red Team. No scripts; lookups use web fetch.",
   "author": {
     "name": "THARAGESHWARAN-SATHYAMOORTHY",
