@@ -8,7 +8,7 @@
 [![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-d97757?style=flat-square)](#quick-start)
 [![Python 3.8+ stdlib only](https://img.shields.io/badge/python-3.8%2B%20·%20stdlib%20only-3776ab?style=flat-square)](tools/attack.py)
 [![Navigator layer 4.5](https://img.shields.io/badge/Navigator-layer%204.5-2bb5a0?style=flat-square)](https://mitre-attack.github.io/attack-navigator/)
-[![License: MIT](https://img.shields.io/github/license/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill?style=flat-square)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill?style=flat-square)](https://github.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/stargazers)
 
 **Turn Claude into an ATT&CK analyst that never quotes a technique ID from memory.**
@@ -21,6 +21,8 @@ with every ID checked against MITRE's live data before you see it.
 <br>
 
 <img src="assets/demo.svg" alt="Terminal demo: attack validate flags three revoked ATT&CK IDs and one unknown ID, search resolves Cozy Bear to G0016 APT29, and layer writes a Navigator layer" width="90%">
+
+<sub>Condensed from real <code>tools/attack.py</code> output against ATT&amp;CK Enterprise v20.1.</sub>
 
 </div>
 
@@ -35,24 +37,7 @@ ATT&CK changes twice a year, and the big 2026 releases broke a lot of mappings p
 
 So `T1562.001 Disable or Modify Tools` and `T1070.001 Clear Windows Event Logs`, two of the most-cited IDs in detection engineering, **no longer exist**. Ask a model for a mapping and you'll still get them.
 
-This skill fixes that. Claude runs a small CLI against MITRE's official STIX data, and **checks every ID before the answer reaches you**:
-
-```text
-$ attack validate incident-notes.md
-
-- result: FAIL - fix before publishing
-- Legacy 'Defense Evasion' on line 1: since v19 Enterprise TA0005 is Stealth and
-  breaking defenses is TA0112 Defense Impairment.
-
-| id        | status  | name                     | action                                         |
-|-----------|---------|--------------------------|------------------------------------------------|
-| T1070.001 | REVOKED | Clear Windows Event Logs | replace with T1685.005 [defense-impairment]    |
-| T1562.001 | REVOKED | Disable or Modify Tools  | replace with T1685 [defense-impairment]        |
-| T1672     | REVOKED | Email Spoofing           | replace with T1684.002 [stealth]               |
-| T9999     | UNKNOWN |                          | not in ATT&CK enterprise v20.1; fix or remove  |
-```
-
-<sub>Real output from <code>tools/attack.py</code> against ATT&CK Enterprise v20.1, trimmed to fit.</sub>
+This skill fixes that. Claude runs a small CLI against MITRE's official STIX data, and **checks every ID before the answer reaches you**, as the demo above shows.
 
 ---
 
