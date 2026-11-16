@@ -6,7 +6,7 @@
 
 [![ATT&CK v20.1](https://img.shields.io/badge/ATT%26CK-v20.1-e5484d?style=flat-square)](https://attack.mitre.org/resources/updates/)
 [![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-d97757?style=flat-square)](#quick-start)
-[![Python 3.8+ stdlib only](https://img.shields.io/badge/python-3.8%2B%20·%20stdlib%20only-3776ab?style=flat-square)](tools/attack.py)
+[![Python 3.8+ stdlib only](https://img.shields.io/badge/python-3.8%2B%20·%20stdlib%20only-3776ab?style=flat-square)](skills/mitre-attack/scripts/attack.py)
 [![Navigator layer 4.5](https://img.shields.io/badge/Navigator-layer%204.5-2bb5a0?style=flat-square)](https://mitre-attack.github.io/attack-navigator/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill?style=flat-square)](https://github.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/stargazers)
@@ -22,7 +22,7 @@ with every ID checked against MITRE's live data before you see it.
 
 <img src="assets/demo.svg" alt="Terminal demo: attack validate flags three revoked ATT&CK IDs and one unknown ID, search resolves Cozy Bear to G0016 APT29, and layer writes a Navigator layer" width="90%">
 
-<sub>Condensed from real <code>tools/attack.py</code> output against ATT&amp;CK Enterprise v20.1.</sub>
+<sub>Condensed from real <code>skills/mitre-attack/scripts/attack.py</code> output against ATT&amp;CK Enterprise v20.1.</sub>
 
 </div>
 
@@ -50,7 +50,7 @@ This skill fixes that. Claude runs a small CLI against MITRE's official STIX dat
 ```
 
 ```bash
-/plugin install mitre-attack@mitre-attack-skill
+/plugin install attack-analyst@mitre-attack-skill
 ```
 
 Then just ask: _"Map this incident report to ATT&CK"_. The skill loads itself whenever ATT&CK comes up.
@@ -195,10 +195,10 @@ flowchart LR
 
 ## The CLI works without Claude too
 
-[`tools/attack.py`](tools/attack.py) is a single-file, standard-library-only ATT&CK CLI. Use it in scripts and CI:
+[`skills/mitre-attack/scripts/attack.py`](skills/mitre-attack/scripts/attack.py) is a single-file, standard-library-only ATT&CK CLI. Use it in scripts and CI:
 
 ```bash
-curl -O https://raw.githubusercontent.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/main/tools/attack.py
+curl -O https://raw.githubusercontent.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/main/skills/mitre-attack/scripts/attack.py
 python3 -I attack.py update
 python3 -I attack.py get T1562
 ```
@@ -230,7 +230,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: curl -sSO https://raw.githubusercontent.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/main/tools/attack.py
+      - run: curl -sSO https://raw.githubusercontent.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill/main/skills/mitre-attack/scripts/attack.py
       - run: python3 -I attack.py update -d enterprise
       - name: Validate every mapping file
         run: |

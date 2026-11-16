@@ -3,7 +3,7 @@
 import argparse, csv, io, json, os, re, subprocess, sys, time, urllib.error, urllib.request
 from collections import Counter, defaultdict
 
-DATA = os.path.expanduser(os.environ.get('ATTACK_DATA', '~/attack-data'))
+DATA = os.path.expanduser('~/attack-data')
 DOMAINS = ('enterprise', 'mobile', 'ics')
 STIX = 'https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/{d}-attack/{d}-attack{v}.json'
 ART = 'https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/'

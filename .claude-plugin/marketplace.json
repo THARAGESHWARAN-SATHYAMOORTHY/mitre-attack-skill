@@ -7,7 +7,7 @@
   "description": "MITRE ATT&CK skill for Claude: TTP mapping, ID validation against live ATT&CK data, detection coverage and Navigator layers.",
   "plugins": [
     {
-      "name": "mitre-attack",
+      "name": "attack-analyst",
       "source": "./",
       "description": "MITRE ATT&CK skill: TTP mapping, ID validation against live data, detection coverage, Navigator layers, emulation plans, Sigma and Atomic mapping."
     }
