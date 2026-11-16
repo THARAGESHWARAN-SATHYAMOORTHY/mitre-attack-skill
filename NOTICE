@@ -5,7 +5,7 @@ MITRE ATT&CK
 
 This project references MITRE ATT&CK technique, tactic, group and software
 identifiers and names, and its tool downloads ATT&CK STIX data at run time.
-ATT&CK content is not covered by the MIT licence above.
+ATT&CK content is not covered by the MIT licence in LICENSE.
 
 © 2026 The MITRE Corporation. This work is reproduced and distributed with the
 permission of The MITRE Corporation.
