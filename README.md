@@ -104,6 +104,8 @@ Resolves the alias to **G0016 APT29**, pulls its techniques (including those of 
 
 <a href="https://mitre-attack.github.io/attack-navigator/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FTHARAGESHWARAN-SATHYAMOORTHY%2Fmitre-attack-skill%2Fmain%2Fexamples%2Fapt29-layer.json"><img src="https://img.shields.io/badge/Open%20APT29%20layer%20in%20Navigator-%E2%86%92-e5484d?style=for-the-badge" alt="Open the APT29 layer in ATT&CK Navigator"></a>
 
+<img src="assets/navigator-apt29.jpg" alt="ATT&CK Navigator showing APT29 techniques highlighted in red across Reconnaissance, Resource Development, Initial Access and Execution">
+
 </td>
 <td width="50%" valign="top">
 
@@ -116,6 +118,8 @@ Resolves the alias to **G0016 APT29**, pulls its techniques (including those of 
 Scores each technique (none / logs / rule / tested), reports coverage per tactic, and ranks the gaps by how often the group uses them:
 
 <a href="https://mitre-attack.github.io/attack-navigator/#layerURL=https%3A%2F%2Fraw.githubusercontent.com%2FTHARAGESHWARAN-SATHYAMOORTHY%2Fmitre-attack-skill%2Fmain%2Fexamples%2Fcoverage-layer.json"><img src="https://img.shields.io/badge/Open%20coverage%20layer%20in%20Navigator-%E2%86%92-2bb5a0?style=for-the-badge" alt="Open the sample coverage layer in ATT&CK Navigator"></a>
+
+<img src="assets/navigator-coverage.jpg" alt="ATT&CK Navigator showing detection coverage: tested techniques in green, rules in blue, gaps in red">
 
 </td>
 </tr>
