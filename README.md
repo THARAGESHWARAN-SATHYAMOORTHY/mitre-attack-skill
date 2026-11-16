@@ -118,7 +118,7 @@ Scores each technique (none / logs / rule / tested), reports coverage per tactic
 <summary><b>Sample coverage report</b> (from <a href="examples/detections.csv"><code>examples/detections.csv</code></a>)</summary>
 
 ```text
-$ attack coverage examples/detections.csv --groups APT29 --top 5
+attack coverage examples/detections.csv --groups APT29 --top 5
 
 | tactic             | id     | techniques | logs+ | rule+ | tested | coverage_% |
 |--------------------|--------|------------|-------|-------|--------|------------|
