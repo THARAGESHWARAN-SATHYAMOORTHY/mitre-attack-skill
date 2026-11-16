@@ -206,13 +206,6 @@ flowchart LR
 | **No weaponisation**      | Atomic Red Team output is test names and GUIDs only. No exploit code, payloads or attack commands     |
 | **Most specific match**   | Uses the sub-technique the evidence supports, otherwise the parent                                    |
 
----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-|  **No invented IDs**       | Every technique, group and software ID is looked up, not recalled                                                    |
-|  **No invented behaviour** | No evidence, no mapping                                                                                              |
-|  **Redaction**             | Secrets, tokens, credential hashes and PII are stripped from logs before they reach a table, layer comment or report |
-|  **No weaponisation**      | Atomic Red Team output is test names and GUIDs only. No exploit code, payloads or attack commands                    |
-|  **Most specific match**   | Uses the sub-technique the evidence supports, otherwise the parent                                                   |
-
 ---
 
 ## The CLI works without Claude too
