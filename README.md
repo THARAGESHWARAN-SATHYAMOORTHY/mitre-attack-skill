@@ -180,12 +180,12 @@ Covers all three domains: **Enterprise**, **Mobile** and **ICS**.
 
 ```mermaid
 flowchart LR
-    A["📄 Your input<br/>report · logs · Sigma rules<br/>'threat model my app'"] --> B["🤖 Claude<br/>+ this skill"]
-    B --> C["🐍 attack.py<br/>MITRE STIX data<br/>(downloaded, cached 24h)"]
-    C --> D["🧭 Map with evidence<br/>+ confidence"]
-    D --> E{"✅ validate<br/>every ID"}
-    E -- "revoked / unknown /<br/>legacy tactic" --> D
-    E -- PASS --> F["📊 Report · Navigator layer<br/>coverage gaps · emulation plan"]
+    A["📄 Report, logs<br/>or Sigma rules"] --> B["🤖 Claude<br/>+ skill"]
+    B --> C["🐍 Live MITRE<br/>data"]
+    C --> D["🧭 Map with<br/>evidence"]
+    D --> E{"✅ Validate<br/>every ID"}
+    E -- "stale ID" --> D
+    E -- PASS --> F["📊 Report<br/>+ layer"]
 ```
 
 1. **Live data, not memory.** The skill installs `attack.py` and downloads the official bundles from [`mitre-attack/attack-stix-data`](https://github.com/mitre-attack/attack-stix-data). Every deliverable states the ATT&CK version it was checked against.
