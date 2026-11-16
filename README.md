@@ -331,6 +331,6 @@ If this saved you from shipping a revoked technique ID, **a ⭐ helps other defe
 
 ## 📜 Licence and attribution
 
-The skill and `attack.py` are released under the [MIT licence](LICENSE).
+The skill and `attack.py` are released under the [MIT licence](LICENSE). Third-party attribution is in [NOTICE](NOTICE).
 
 MITRE ATT&CK® and ATT&CK® are registered trademarks of The MITRE Corporation. ATT&CK content is © The MITRE Corporation and is used under the [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). This project is independent and is not affiliated with or endorsed by MITRE.

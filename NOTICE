@@ -1,0 +1,15 @@
+mitre-attack-skill
+Copyright (c) 2026 THARAGESHWARAN SATHYAMOORTHY (MIT licence, see LICENSE)
+
+MITRE ATT&CK
+
+This project references MITRE ATT&CK technique, tactic, group and software
+identifiers and names, and its tool downloads ATT&CK STIX data at run time.
+ATT&CK content is not covered by the MIT licence above.
+
+© 2026 The MITRE Corporation. This work is reproduced and distributed with the
+permission of The MITRE Corporation.
+
+ATT&CK Terms of Use: https://attack.mitre.org/resources/legal-and-branding/terms-of-use/
+This project is not affiliated with or endorsed by The MITRE Corporation.
+MITRE ATT&CK and ATT&CK are registered trademarks of The MITRE Corporation.
