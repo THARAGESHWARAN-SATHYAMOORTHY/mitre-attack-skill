@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """attack.py - stdlib-only MITRE ATT&CK CLI (enterprise / mobile / ics). Run: python3 -I attack.py <command> -h"""
-import argparse, csv, io, json, os, re, subprocess, sys, time, urllib.error, urllib.request
+import argparse, csv, io, json, os, re, sys, time, urllib.error, urllib.request
 from collections import Counter, defaultdict
 
 DATA = os.path.expanduser('~/attack-data')
@@ -30,16 +30,15 @@ def clean(t, n=0):
     return t if not n or len(t) <= n else t[:n].rsplit(' ', 1)[0] + ' ...'
 
 def fetch(url, timeout=180):
-    """GET url -> bytes, or None on 404. urllib first, curl fallback (proxy / CA quirks)."""
+    """GET url -> bytes, or None on 404. Uses urllib only, so no other program is started."""
+    req = urllib.request.Request(url, headers={'User-Agent': 'attack-cli'})
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'attack-cli'}), timeout=timeout) as r: return r.read()
+        with urllib.request.urlopen(req, timeout=timeout) as r: return r.read()
     except urllib.error.HTTPError as e:
         if e.code == 404: return None
-    except Exception: pass
-    p = subprocess.run(['curl', '-sSLf', '--max-time', str(timeout), url], capture_output=True)
-    if p.returncode == 22: return None
-    if p.returncode: die(f'download failed: {url}: {p.stderr.decode(errors="replace").strip()}')
-    return p.stdout
+        die(f'download failed: {url}: HTTP {e.code}')
+    except (urllib.error.URLError, OSError) as e:
+        die(f'download failed: {url}: {getattr(e, "reason", e)} (behind a proxy or TLS-inspecting firewall? fetch https://attack.mitre.org instead)')
 
 def cached(url, ttl=86400):
     p = os.path.join(DATA, 'cache', re.sub(r'[^A-Za-z0-9.]+', '_', url.split('://')[1])[-150:])
