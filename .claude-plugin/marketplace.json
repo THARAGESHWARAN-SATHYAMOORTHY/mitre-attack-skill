@@ -1,6 +1,10 @@
 {
   "name": "mitre-attack-skill",
-  "owner": { "name": "THARAGESHWARAN-SATHYAMOORTHY", "url": "https://github.com/THARAGESHWARAN-SATHYAMOORTHY" },
+  "owner": {
+    "name": "THARAGESHWARAN-SATHYAMOORTHY",
+    "url": "https://github.com/THARAGESHWARAN-SATHYAMOORTHY"
+  },
+  "description": "MITRE ATT&CK skill for Claude: TTP mapping, ID validation against live ATT&CK data, detection coverage and Navigator layers.",
   "plugins": [
     {
       "name": "mitre-attack",
