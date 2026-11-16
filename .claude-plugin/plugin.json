@@ -1,0 +1,10 @@
+{
+  "name": "mitre-attack",
+  "version": "1.0.0",
+  "description": "MITRE ATT&CK skill: map incidents and reports to techniques, validate IDs against live STIX data, measure detection coverage, build Navigator layers, profile groups, plan emulations, and map Sigma and Atomic Red Team.",
+  "author": { "name": "THARAGESHWARAN-SATHYAMOORTHY", "url": "https://github.com/THARAGESHWARAN-SATHYAMOORTHY" },
+  "homepage": "https://github.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill",
+  "repository": "https://github.com/THARAGESHWARAN-SATHYAMOORTHY/mitre-attack-skill",
+  "license": "MIT",
+  "keywords": ["mitre", "att&ck", "threat-modeling", "detection-engineering", "security", "navigator", "sigma"]
+}
