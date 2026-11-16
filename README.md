@@ -18,6 +18,10 @@ with every ID checked against MITRE's live data before you see it.
 
 [Quick start](#quick-start) · [See it work](#see-it-work) · [What you can ask](#what-you-can-ask) · [How it works](#how-it-works) · [CLI](#the-cli-works-without-claude-too) · [FAQ](#faq)
 
+<br>
+
+<img src="assets/demo.svg" alt="Terminal demo: attack validate flags three revoked ATT&CK IDs and one unknown ID, search resolves Cozy Bear to G0016 APT29, and layer writes a Navigator layer" width="90%">
+
 </div>
 
 ---
