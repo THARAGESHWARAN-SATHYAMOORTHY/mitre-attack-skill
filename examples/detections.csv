@@ -1,0 +1,10 @@
+technique_id,detection_name,status
+T1059.001,PowerShell encoded command,tested
+T1078,Impossible travel sign-in,rule
+T1110.003,Password spray burst,rule
+T1566.001,Malicious attachment sandbox verdict,tested
+T1685,Security tool tampering,rule
+T1003.001,LSASS memory access,logs
+T1021.001,RDP from non-admin host,logs
+T1486,Mass file rename,none
+T1567.002,Upload to cloud storage,none
